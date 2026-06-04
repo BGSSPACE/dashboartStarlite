@@ -141,8 +141,8 @@ table.detail td { padding:12px 16px; font-size:13px; vertical-align:middle; whit
 th.sortable { cursor:pointer; user-select:none; }
 th.sortable:hover { color:var(--red); }
 th .sort-arrow { font-size:9px; margin-left:3px; opacity:0.35; }
-th.sort-asc .sort-arrow::after { content:" ▲"; opacity:1; }
-th.sort-desc .sort-arrow::after { content:" ▼"; opacity:1; }
+th.sort-asc .sort-arrow::after { content:" \25B2"; opacity:1; }
+th.sort-desc .sort-arrow::after { content:" \25BC"; opacity:1; }
 .spin { animation:spin 0.8s linear infinite; }
 @keyframes spin { to { transform:rotate(360deg); } }
 /* PAGINATION */
@@ -198,25 +198,25 @@ th.sort-desc .sort-arrow::after { content:" ▼"; opacity:1; }
   <div class="main main-narrow">
     <div class="partner-hero">
       <div class="label">Laporan Performa Mitra</div>
-      <div class="name" id="p-name">—</div>
-      <div class="code" id="p-code">—</div>
+      <div class="name" id="p-name">&mdash;</div>
+      <div class="code" id="p-code">&mdash;</div>
     </div>
     <div class="kpi-grid two">
       <div class="kpi-card accent">
         <div class="kpi-lbl">Total Pendaftar dari Kode Kamu</div>
-        <div class="kpi-val" id="p-reg">—</div>
+        <div class="kpi-val" id="p-reg">&mdash;</div>
         <div class="kpi-sub">akumulasi semua periode</div>
       </div>
       <div class="kpi-card">
         <div class="kpi-lbl">Estimasi Komisi</div>
-        <div class="kpi-val" id="p-comm">—</div>
+        <div class="kpi-val" id="p-comm">&mdash;</div>
         <div class="kpi-sub" id="p-comm-sub">Rp30.000 per pendaftar</div>
       </div>
     </div>
     <div class="form-card">
       <div class="ftxt">
         <h4>Form Info Rekening</h4>
-        <p>Untuk pengiriman komisi, isi info rekening kamu lewat form ini. Masukkan kode <strong id="p-code-inline">—</strong> saat diminta.</p>
+        <p>Untuk pengiriman komisi, isi info rekening kamu lewat form ini. Masukkan kode <strong id="p-code-inline">&mdash;</strong> saat diminta.</p>
       </div>
       <a class="form-btn" id="p-form-link" href="#" target="_blank" rel="noopener">Buka Form Rekening</a>
     </div>
@@ -243,7 +243,7 @@ th.sort-desc .sort-arrow::after { content:" ▼"; opacity:1; }
         <div class="date-filter">
           <label>From</label>
           <input class="date-input" type="date" id="date-from" onchange="applyAll()">
-          <span class="date-sep">—</span>
+          <span class="date-sep">&mdash;</span>
           <label>To</label>
           <input class="date-input" type="date" id="date-to" onchange="applyAll()">
           <button style="margin-left:4px;padding:5px 10px;border:1px solid var(--border-2);border-radius:6px;background:none;font-size:12px;color:var(--muted);" onclick="clearDates()">Reset</button>
@@ -263,24 +263,24 @@ th.sort-desc .sort-arrow::after { content:" ▼"; opacity:1; }
     <div class="kpi-grid">
       <div class="kpi-card accent">
         <div class="kpi-lbl">Total Registrations</div>
-        <div class="kpi-val" id="k-total">—</div>
-        <div class="kpi-sub">of target <span id="k-target-p">—</span></div>
+        <div class="kpi-val" id="k-total">&mdash;</div>
+        <div class="kpi-sub">of target <span id="k-target-p">&mdash;</span></div>
         <div class="kpi-progress"><div class="kpi-progress-track"><div class="kpi-progress-fill" id="k-total-bar" style="width:0%"></div></div><div class="kpi-progress-label"><span class="kpi-pct" id="k-total-pct">0%</span><span class="kpi-tgt">achieved</span></div></div>
       </div>
       <div class="kpi-card">
         <div class="kpi-lbl">Total Revenue</div>
-        <div class="kpi-val" id="k-rev">—</div>
-        <div class="kpi-sub">of target <span id="k-target-r">—</span></div>
+        <div class="kpi-val" id="k-rev">&mdash;</div>
+        <div class="kpi-sub">of target <span id="k-target-r">&mdash;</span></div>
         <div class="kpi-progress"><div class="kpi-progress-track"><div class="kpi-progress-fill" id="k-rev-bar" style="width:0%"></div></div><div class="kpi-progress-label"><span class="kpi-pct" id="k-rev-pct">0%</span><span class="kpi-tgt">achieved</span></div></div>
       </div>
       <div class="kpi-card">
         <div class="kpi-lbl">Total Spending</div>
-        <div class="kpi-val" id="k-cost">—</div>
+        <div class="kpi-val" id="k-cost">&mdash;</div>
         <div class="kpi-sub">accumulated spend, all channels</div>
       </div>
       <div class="kpi-card">
         <div class="kpi-lbl">Cost per Acquisition</div>
-        <div class="kpi-val" id="k-cpa">—</div>
+        <div class="kpi-val" id="k-cpa">&mdash;</div>
         <div class="kpi-sub">average cost to acquire 1 registrant</div>
       </div>
     </div>
@@ -339,7 +339,7 @@ th.sort-desc .sort-arrow::after { content:" ▼"; opacity:1; }
       <div class="table-bar">
         <div class="table-bar-left">
           <span class="table-title-sm">All Data</span>
-          <span class="table-count" id="tbl-count">—</span>
+          <span class="table-count" id="tbl-count">&mdash;</span>
           <select class="t-filter no-pdf" id="f-source" onchange="applyAll()"><option value="">All channels</option></select>
           <select class="t-filter no-pdf" id="f-region" onchange="applyAll()"><option value="">All regions</option></select>
           <input class="t-search no-pdf" type="text" id="f-search" placeholder="Search username / media / link..." oninput="applyAll()">
@@ -353,7 +353,7 @@ th.sort-desc .sort-arrow::after { content:" ▼"; opacity:1; }
       <div class="table-bar">
         <div class="table-bar-left">
           <span class="table-title-sm">KOL &amp; Homeless</span>
-          <span class="table-count" id="comm-count">—</span>
+          <span class="table-count" id="comm-count">&mdash;</span>
           <span class="muted" id="comm-rate-note"></span>
         </div>
         <input class="t-search no-pdf" type="text" id="comm-search" placeholder="Search nama / kode..." oninput="commPage=1;renderCommission()">
@@ -375,6 +375,7 @@ var CFG = {
   TARGET_P       : 1000000,
   TARGET_R       : 100000000,
   REFRESH_MIN    : 0,
+  COMMISSION_SOURCES : ["kol","homeless"],
   SHEETS: [
     { name:"Homeless", tab:"Homeless" },
     { name:"KOL",      tab:"KOL"      },
@@ -465,7 +466,9 @@ function fetchData(manual){
   fetch(CFG.SCRIPT_URL)
     .then(function(r){ return r.json(); })
     .then(function(json){
-      allData=json.data||[]; commission=json.commission||[];
+      allData=json.data||[];
+      commission=json.commission||[];
+      if(!commission.length) commission=deriveCommission();
       commByCode={}; commission.forEach(function(c){ if(c.referral_code) commByCode[String(c.referral_code).trim()]=c; });
       dataLoaded=true;
       var stamp=json.lastUpdate?("Database last updated: "+json.lastUpdate):("Fetched: "+new Date().toLocaleString("en-GB",{day:"2-digit",month:"long",year:"numeric",hour:"2-digit",minute:"2-digit"}));
@@ -479,6 +482,43 @@ function fetchData(manual){
       var st=document.getElementById("dash-sub-text"); if(st) st.textContent="Connection failed";
       var ic=document.getElementById("refresh-icon"); if(ic) ic.classList.remove("spin");
     });
+}
+
+// ============================================================
+//  DERIVE KOL & HOMELESS (commission) FROM allData
+//  Dipakai kalau backend belum mengirim array `commission`.
+//  Dikelompokkan per referral_code (username) untuk channel
+//  KOL + Homeless, lalu komisi = jumlah pendaftar x COMMISSION_PER.
+// ============================================================
+function deriveCommission(){
+  var keep={}; CFG.COMMISSION_SOURCES.forEach(function(s){ keep[s.toLowerCase()]=1; });
+  var map={};
+  allData.forEach(function(r){
+    var src=String(r._source||"").toLowerCase();
+    if(!keep[src]) return;
+    var code=String(r.referral_code||"").trim();
+    var media=String(r.media_name||"").trim();
+    var keyId=code||media;
+    if(!keyId) return;
+    if(!map[keyId]){
+      map[keyId]={
+        name: media || code,
+        referral_code: code || keyId,
+        source: r._source,
+        link_postingan: String(r.link||"").trim(),
+        registrations: 0,
+        commission: 0
+      };
+    }
+    map[keyId].registrations += num(r.jumlah_pendaftar);
+    if(!map[keyId].link_postingan && r.link) map[keyId].link_postingan=String(r.link).trim();
+    if(!map[keyId].name && media) map[keyId].name=media;
+  });
+  return Object.keys(map).map(function(k){
+    var c=map[k];
+    c.commission = c.registrations * CFG.COMMISSION_PER;
+    return c;
+  });
 }
 
 function renderAdmin(){ buildFilters(); applyAll(); renderCommission(); }
@@ -532,7 +572,7 @@ function renderKPI(d){
   var pctR=CFG.TARGET_R?Math.min(Math.round(tr/CFG.TARGET_R*100),100):0;
   var cpa=tp?Math.round(tc/tp):0;
   set("k-total",fmtNum(tp)); set("k-target-p",fmtNum(CFG.TARGET_P)); set("k-total-pct",pctP+"%"); bar("k-total-bar",pctP);
-  set("k-rev",fmtRp(tr)); set("k-target-r",CFG.TARGET_R?fmtRp(CFG.TARGET_R):"—"); set("k-rev-pct",pctR+"%"); bar("k-rev-bar",pctR);
+  set("k-rev",fmtRp(tr)); set("k-target-r",CFG.TARGET_R?fmtRp(CFG.TARGET_R):"\u2014"); set("k-rev-pct",pctR+"%"); bar("k-rev-bar",pctR);
   set("k-cost",fmtRp(tc)); set("k-cpa",fmtRp(cpa));
 }
 function set(id,v){ var el=document.getElementById(id); if(el) el.textContent=v; }
@@ -609,18 +649,18 @@ function renderConversionTable(d){
   }).join("");
   document.getElementById("conv-tbody").innerHTML=html||'<tr><td colspan="7" style="text-align:center;color:var(--muted);padding:20px;">No data</td></tr>';
 }
-function dash(){ return '<span style="color:var(--muted)">—</span>'; }
+function dash(){ return '<span style="color:var(--muted)">\u2014</span>'; }
 
 function colType(cols,key){ for(var i=0;i<cols.length;i++) if(cols[i].key===key) return cols[i].type; return "text"; }
 function cellHtml(col,r){
   var v=r[col.key];
-  if(col.type==="date")    return '<td class="muted">'+(v?fmtDate(v):"—")+'</td>';
+  if(col.type==="date")    return '<td class="muted">'+(v?fmtDate(v):"\u2014")+'</td>';
   if(col.type==="num")     return '<td class="num-bold">'+fmtNum(num(v))+'</td>';
   if(col.type==="rp")      return '<td class="red-num">'+fmtRp(num(v))+'</td>';
-  if(col.type==="code")    return '<td><span class="code-tag">'+esc(v||"—")+'</span></td>';
+  if(col.type==="code")    return '<td><span class="code-tag">'+esc(v||"\u2014")+'</span></td>';
   if(col.type==="channel"){ var nm=sheetNameMap(); var label=nm[v]||v||"-"; var c=chColor(label); return '<td><span class="ch-pill" style="background:'+c+'18;color:'+c+'">'+esc(label)+'</span></td>'; }
-  if(col.type==="linkbtn"){ var u=String(v||"").trim(); return '<td>'+(u?('<a class="send-btn" style="text-decoration:none;display:inline-block;" href="'+esc(u)+'" target="_blank" rel="noopener">'+esc(col.btn||"Buka")+'</a>'):'<span class="muted">—</span>')+'</td>'; }
-  return '<td>'+esc(v||"—")+'</td>';
+  if(col.type==="linkbtn"){ var u=String(v||"").trim(); return '<td>'+(u?('<a class="send-btn" style="text-decoration:none;display:inline-block;" href="'+esc(u)+'" target="_blank" rel="noopener">'+esc(col.btn||"Buka")+'</a>'):'<span class="muted">\u2014</span>')+'</td>'; }
+  return '<td>'+esc(v||"\u2014")+'</td>';
 }
 function buildTable(rows,cols,sortable){
   var html='<table class="detail"><thead><tr>';
@@ -635,12 +675,12 @@ function buildTable(rows,cols,sortable){
 }
 function buildPag(cur,total,rowCount,start,end,fn){
   if(total<=1) return '';
-  var html='<div class="pag-bar"><div class="pag-info">Showing '+(start+1)+'–'+end+' of '+fmtNum(rowCount)+'</div><div class="pag-btns">';
+  var html='<div class="pag-bar"><div class="pag-info">Showing '+(start+1)+'\u2013'+end+' of '+fmtNum(rowCount)+'</div><div class="pag-btns">';
   html+='<button class="pag-btn" onclick="'+fn+'('+Math.max(1,cur-1)+')" '+(cur===1?'disabled':'')+'>&#8592;</button>';
   var lo=Math.max(1,cur-2), hi=Math.min(total,cur+2);
-  if(lo>1){ html+='<button class="pag-btn" onclick="'+fn+'(1)">1</button>'; if(lo>2) html+='<span class="pag-info" style="padding:0 2px;">…</span>'; }
+  if(lo>1){ html+='<button class="pag-btn" onclick="'+fn+'(1)">1</button>'; if(lo>2) html+='<span class="pag-info" style="padding:0 2px;">\u2026</span>'; }
   for(var i=lo;i<=hi;i++) html+='<button class="pag-btn'+(i===cur?' active':'')+'" onclick="'+fn+'('+i+')">'+i+'</button>';
-  if(hi<total){ if(hi<total-1) html+='<span class="pag-info" style="padding:0 2px;">…</span>'; html+='<button class="pag-btn" onclick="'+fn+'('+total+')">'+total+'</button>'; }
+  if(hi<total){ if(hi<total-1) html+='<span class="pag-info" style="padding:0 2px;">\u2026</span>'; html+='<button class="pag-btn" onclick="'+fn+'('+total+')">'+total+'</button>'; }
   html+='<button class="pag-btn" onclick="'+fn+'('+Math.min(total,cur+1)+')" '+(cur===total?'disabled':'')+'>&#8594;</button>';
   return html+'</div></div>';
 }
@@ -698,7 +738,7 @@ function groupBy(d,key,valKey){ var o={}; d.forEach(function(r){ var k=r[key]||"
 function num(v){ if(typeof v==="number") return v; var n=parseFloat(String(v||"").replace(/[^0-9.\-]/g,"")); return isNaN(n)?0:n; }
 function fmtNum(n){ return Math.round(num(n)).toLocaleString("en-US"); }
 function fmtRp(n){ var v=Math.round(num(n)); if(v>=1e12) return "Rp "+(v/1e12).toFixed(1)+"T"; if(v>=1e9) return "Rp "+(v/1e9).toFixed(1)+"M"; if(v>=1e6) return "Rp "+(v/1e6).toFixed(1)+"jt"; return "Rp "+v.toLocaleString("en-US"); }
-function fmtDate(v){ return String(v||"—"); }
+function fmtDate(v){ return String(v||"\u2014"); }
 function esc(s){ return String(s||"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;"); }
 var toastTimer=null;
 function toast(msg){ var t=document.getElementById("toast"); t.textContent=msg; t.classList.add("on"); if(toastTimer) clearTimeout(toastTimer); toastTimer=setTimeout(function(){ t.classList.remove("on"); },3500); }
@@ -723,6 +763,3 @@ function exportPDF(){
 </script>
 </body>
 </html>
-
-You are out of free messages until 7:50 AM
-Get more
