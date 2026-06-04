@@ -21,12 +21,7 @@ html { scroll-behavior:smooth; }
 body { font-family:var(--font); background:var(--bg); color:var(--text); font-size:14px; line-height:1.5; }
 button { cursor:pointer; font-family:var(--font); }
 input { font-family:var(--font); }
-
-/* AUTH */
-.auth-overlay { position:fixed; inset:0; z-index:9999; background:
-  radial-gradient(1200px 600px at 70% -10%,#EEF4FF 0%,rgba(255,243,242,0) 55%),
-  linear-gradient(180deg,#FBFCFE 0%,#EEF2FA 100%);
-  display:flex; align-items:center; justify-content:center; padding:24px; }
+.auth-overlay { position:fixed; inset:0; z-index:9999; background: radial-gradient(1200px 600px at 70% -10%,#EEF4FF 0%,rgba(255,243,242,0) 55%), linear-gradient(180deg,#FBFCFE 0%,#EEF2FA 100%); display:flex; align-items:center; justify-content:center; padding:24px; }
 .auth-overlay.off { display:none; }
 .auth-card { background:var(--white); border:1px solid var(--border); border-radius:var(--rxl); padding:40px 40px 36px; width:400px; max-width:100%; display:flex; flex-direction:column; gap:18px; box-shadow:0 18px 50px rgba(18,46,128,0.10); }
 .auth-mark { display:flex; align-items:center; gap:10px; }
@@ -40,8 +35,6 @@ input { font-family:var(--font); }
 .auth-btn:hover { background:#0F1B2E; }
 .auth-err { font-size:12px; color:var(--red); display:none; text-align:center; min-height:16px; }
 .auth-err.on { display:block; }
-
-/* APP SHELL */
 #app, #partner-view { display:none; min-height:100vh; flex-direction:column; }
 #app.on, #partner-view.on { display:flex; }
 .topbar { background:var(--white); height:62px; padding:0 32px; display:flex; align-items:center; justify-content:space-between; position:sticky; top:0; z-index:100; border-bottom:1px solid var(--border); }
@@ -57,8 +50,6 @@ input { font-family:var(--font); }
 .tb-btn.red:hover { filter:brightness(1.06); }
 .main { flex:1; padding:30px 32px 48px; max-width:1460px; width:100%; margin:0 auto; }
 .main-narrow { max-width:760px; }
-
-/* HEADER */
 .dash-header { display:flex; align-items:flex-start; justify-content:space-between; margin-bottom:26px; gap:20px; flex-wrap:wrap; }
 .dash-title { font-size:23px; font-weight:800; color:var(--text); letter-spacing:-0.02em; }
 .dash-sub { font-size:13px; color:var(--text-2); margin-top:4px; display:flex; align-items:center; gap:8px; }
@@ -74,14 +65,10 @@ input { font-family:var(--font); }
 .action-btn.primary { background:var(--grad); color:var(--white); border:none; }
 .action-btn.primary:hover { filter:brightness(1.06); }
 .action-btn svg { width:15px; height:15px; }
-
-/* SECTION + CARDS */
 .section-label { font-size:11px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--red); margin-bottom:14px; }
 .card { background:var(--white); border:1px solid var(--border); border-radius:var(--rlg); padding:22px 24px; }
 .card-title { font-size:14px; font-weight:700; color:var(--text); margin-bottom:4px; }
 .card-sub { font-size:12px; color:var(--muted); margin-bottom:18px; }
-
-/* KPI */
 .kpi-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; margin-bottom:26px; }
 .kpi-grid.two { grid-template-columns:repeat(2,1fr); }
 @media (max-width:920px) { .kpi-grid { grid-template-columns:repeat(2,1fr); } }
@@ -102,14 +89,10 @@ input { font-family:var(--font); }
 .kpi-card.accent .kpi-pct { color:var(--white); }
 .kpi-tgt { color:var(--muted); }
 .kpi-card.accent .kpi-tgt { color:rgba(255,255,255,0.65); }
-
-/* GRIDS */
 .grid-2 { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:26px; }
 .grid-2-wide { display:grid; grid-template-columns:1.5fr 1fr; gap:16px; margin-bottom:26px; }
 @media (max-width:1000px) { .grid-2, .grid-2-wide { grid-template-columns:1fr; } }
 .full { margin-bottom:26px; }
-
-/* RANK LIST */
 .ch-list { display:flex; flex-direction:column; gap:13px; }
 .ch-row { display:flex; align-items:center; gap:12px; }
 .ch-rank { font-size:11px; font-weight:700; color:var(--muted); width:18px; flex-shrink:0; text-align:center; }
@@ -120,8 +103,6 @@ input { font-family:var(--font); }
 .ch-bar-fill { height:100%; border-radius:4px; transition:width 0.5s ease; }
 .ch-val { font-size:12px; font-weight:700; color:var(--text); width:54px; text-align:right; flex-shrink:0; }
 .ch-pct { font-size:11px; color:var(--muted); width:38px; text-align:right; flex-shrink:0; }
-
-/* TABLES */
 .conv-scroll, .table-scroll { overflow-x:auto; }
 .conv-table { width:100%; border-collapse:collapse; min-width:560px; }
 .conv-table th { font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:0.05em; color:var(--muted); padding:6px 10px 11px; text-align:left; border-bottom:1px solid var(--border); white-space:nowrap; }
@@ -131,11 +112,9 @@ input { font-family:var(--font); }
 .conv-high { background:#DCFCE7; color:#15803d; }
 .conv-mid { background:#FEF3C7; color:#B45309; }
 .conv-low { background:var(--red-light); color:var(--red-dark); }
-
 .chart-legend { display:flex; flex-wrap:wrap; gap:12px; margin-bottom:14px; }
 .legend-item { display:flex; align-items:center; gap:5px; font-size:12px; color:var(--text-2); }
 .legend-sq { width:10px; height:10px; border-radius:2px; flex-shrink:0; }
-
 .table-wrap { background:var(--white); border:1px solid var(--border); border-radius:var(--rlg); overflow:hidden; }
 .table-bar { padding:16px 22px; border-bottom:1px solid var(--border); display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap; }
 .table-bar-left { display:flex; align-items:center; gap:10px; flex-wrap:wrap; }
@@ -166,18 +145,16 @@ th.sort-asc .sort-arrow::after { content:" ▲"; opacity:1; }
 th.sort-desc .sort-arrow::after { content:" ▼"; opacity:1; }
 .spin { animation:spin 0.8s linear infinite; }
 @keyframes spin { to { transform:rotate(360deg); } }
-
-/* COMMISSION */
+/* PAGINATION */
+.pag-bar { display:flex; align-items:center; justify-content:space-between; padding:14px 22px; border-top:1px solid var(--border); flex-wrap:wrap; gap:10px; }
+.pag-info { font-size:12px; color:var(--muted); }
+.pag-btns { display:flex; align-items:center; gap:6px; }
+.pag-btn { padding:6px 12px; border:1px solid var(--border-2); border-radius:6px; font-size:12px; font-weight:600; color:var(--text-2); background:var(--white); cursor:pointer; transition:all 0.15s; min-width:34px; text-align:center; }
+.pag-btn:hover:not(:disabled) { border-color:var(--red); color:var(--red); }
+.pag-btn.active { background:var(--grad); color:#fff; border:none; }
+.pag-btn:disabled { opacity:0.35; cursor:not-allowed; }
 .send-btn { padding:6px 12px; background:var(--grad); color:#fff; border:none; border-radius:6px; font-size:12px; font-weight:600; white-space:nowrap; transition:filter 0.15s; }
 .send-btn:hover { filter:brightness(1.06); }
-.send-btn:disabled { background:var(--border-2); color:var(--muted); cursor:not-allowed; filter:none; }
-.status-pill { display:inline-block; padding:2px 9px; border-radius:20px; font-size:11px; font-weight:700; }
-.status-sent { background:#DCFCE7; color:#15803d; }
-.status-pending { background:var(--bg); color:var(--muted); }
-.link-a { color:var(--red-dark); font-size:12px; text-decoration:none; font-weight:600; }
-.link-a:hover { text-decoration:underline; }
-
-/* PARTNER */
 .partner-hero { background:var(--grad); border-radius:var(--rlg); padding:28px 30px; color:#fff; margin-bottom:24px; }
 .partner-hero .label { font-size:12px; font-weight:600; letter-spacing:0.05em; text-transform:uppercase; opacity:0.8; }
 .partner-hero .name { font-size:26px; font-weight:800; margin-top:4px; letter-spacing:-0.02em; }
@@ -187,20 +164,15 @@ th.sort-desc .sort-arrow::after { content:" ▼"; opacity:1; }
 .form-card .ftxt p { font-size:13px; color:var(--text-2); line-height:1.6; }
 .form-btn { padding:12px 22px; background:var(--grad); color:#fff; border:none; border-radius:var(--r); font-size:13px; font-weight:700; text-decoration:none; white-space:nowrap; transition:filter 0.15s; }
 .form-btn:hover { filter:brightness(1.06); }
-
-/* TOAST */
 #toast { position:fixed; bottom:28px; left:50%; transform:translateX(-50%) translateY(20px); background:var(--text); color:#fff; padding:13px 22px; border-radius:10px; font-size:13px; font-weight:600; box-shadow:0 10px 30px rgba(18,46,128,0.25); opacity:0; pointer-events:none; transition:all 0.25s; z-index:10000; }
 #toast.on { opacity:1; transform:translateX(-50%) translateY(0); }
 </style>
 </head>
 <body>
 
-<!-- LOGIN -->
 <div class="auth-overlay" id="login-screen">
   <div class="auth-card">
-    <div class="auth-mark">
-      <img id="login-logo" src="" alt="Starlite" style="height:32px;object-fit:contain;">
-    </div>
+    <div class="auth-mark"><img id="login-logo" src="" alt="Starlite" style="height:32px;object-fit:contain;"></div>
     <p class="auth-h">Sign in</p>
     <p class="auth-sub">Selamat datang di dashboard performance Starlite. Silahkan masukkan password Anda.</p>
     <div>
@@ -214,7 +186,6 @@ th.sort-desc .sort-arrow::after { content:" ▼"; opacity:1; }
   </div>
 </div>
 
-<!-- PARTNER VIEW (KOL / Homeless) -->
 <div id="partner-view">
   <div class="topbar">
     <div class="topbar-left">
@@ -222,9 +193,7 @@ th.sort-desc .sort-arrow::after { content:" ▼"; opacity:1; }
       <div class="topbar-divider"></div>
       <div class="topbar-title">Partner Report</div>
     </div>
-    <div class="topbar-right">
-      <button class="tb-btn red" onclick="doLogout()">Keluar</button>
-    </div>
+    <div class="topbar-right"><button class="tb-btn red" onclick="doLogout()">Keluar</button></div>
   </div>
   <div class="main main-narrow">
     <div class="partner-hero">
@@ -251,11 +220,10 @@ th.sort-desc .sort-arrow::after { content:" ▼"; opacity:1; }
       </div>
       <a class="form-btn" id="p-form-link" href="#" target="_blank" rel="noopener">Buka Form Rekening</a>
     </div>
-    <p style="font-size:12px; color:var(--muted); margin-top:18px; text-align:center;">Laporan ini hanya menampilkan data akun kamu. Diperbarui otomatis dari sistem.</p>
+    <p style="font-size:12px;color:var(--muted);margin-top:18px;text-align:center;">Laporan ini hanya menampilkan data akun kamu. Diperbarui otomatis dari sistem.</p>
   </div>
 </div>
 
-<!-- ADMIN APP -->
 <div id="app">
   <div class="topbar">
     <div class="topbar-left">
@@ -263,11 +231,8 @@ th.sort-desc .sort-arrow::after { content:" ▼"; opacity:1; }
       <div class="topbar-divider"></div>
       <div class="topbar-title">Acquisition Dashboard</div>
     </div>
-    <div class="topbar-right">
-      <button class="tb-btn red" onclick="doLogout()">Log out</button>
-    </div>
+    <div class="topbar-right"><button class="tb-btn red" onclick="doLogout()">Log out</button></div>
   </div>
-
   <div class="main" id="pdf-root">
     <div class="dash-header">
       <div>
@@ -300,19 +265,13 @@ th.sort-desc .sort-arrow::after { content:" ▼"; opacity:1; }
         <div class="kpi-lbl">Total Registrations</div>
         <div class="kpi-val" id="k-total">—</div>
         <div class="kpi-sub">of target <span id="k-target-p">—</span></div>
-        <div class="kpi-progress">
-          <div class="kpi-progress-track"><div class="kpi-progress-fill" id="k-total-bar" style="width:0%"></div></div>
-          <div class="kpi-progress-label"><span class="kpi-pct" id="k-total-pct">0%</span><span class="kpi-tgt">achieved</span></div>
-        </div>
+        <div class="kpi-progress"><div class="kpi-progress-track"><div class="kpi-progress-fill" id="k-total-bar" style="width:0%"></div></div><div class="kpi-progress-label"><span class="kpi-pct" id="k-total-pct">0%</span><span class="kpi-tgt">achieved</span></div></div>
       </div>
       <div class="kpi-card">
         <div class="kpi-lbl">Total Revenue</div>
         <div class="kpi-val" id="k-rev">—</div>
         <div class="kpi-sub">of target <span id="k-target-r">—</span></div>
-        <div class="kpi-progress">
-          <div class="kpi-progress-track"><div class="kpi-progress-fill" id="k-rev-bar" style="width:0%"></div></div>
-          <div class="kpi-progress-label"><span class="kpi-pct" id="k-rev-pct">0%</span><span class="kpi-tgt">achieved</span></div>
-        </div>
+        <div class="kpi-progress"><div class="kpi-progress-track"><div class="kpi-progress-fill" id="k-rev-bar" style="width:0%"></div></div><div class="kpi-progress-label"><span class="kpi-pct" id="k-rev-pct">0%</span><span class="kpi-tgt">achieved</span></div></div>
       </div>
       <div class="kpi-card">
         <div class="kpi-lbl">Total Spending</div>
@@ -397,7 +356,7 @@ th.sort-desc .sort-arrow::after { content:" ▼"; opacity:1; }
           <span class="table-count" id="comm-count">—</span>
           <span class="muted" id="comm-rate-note"></span>
         </div>
-        <input class="t-search no-pdf" type="text" id="comm-search" placeholder="Search nama / kode..." oninput="renderCommission()">
+        <input class="t-search no-pdf" type="text" id="comm-search" placeholder="Search nama / kode..." oninput="commPage=1;renderCommission()">
       </div>
       <div class="table-scroll" id="comm-body"><div class="loading-row">Loading...</div></div>
     </div>
@@ -417,10 +376,10 @@ var CFG = {
   TARGET_R       : 100000000,
   REFRESH_MIN    : 0,
   SHEETS: [
-    { name: "Homeless", tab: "Homeless" },
-    { name: "KOL",      tab: "KOL"      },
-    { name: "Meta Ads", tab: "Meta"     },
-    { name: "TikTok",   tab: "TikTok"  }
+    { name:"Homeless", tab:"Homeless" },
+    { name:"KOL",      tab:"KOL"      },
+    { name:"Meta Ads", tab:"Meta"     },
+    { name:"TikTok",   tab:"TikTok"  }
   ],
   DETAIL_COLS: [
     { key:"wilayah",          label:"Region",        type:"text"    },
@@ -452,6 +411,9 @@ function sheetNameMap(){ var nm={}; CFG.SHEETS.forEach(function(x){ nm[x.tab]=x.
 var currentRole="", currentCode="", refreshTimer=null;
 var allData=[], commission=[], commByCode={}, trendChart=null, donutChart=null;
 var dataLoaded=false;
+var sortCol="jumlah_pendaftar", sortDir="desc";
+var tablePage=1, commPage=1;
+var PAGE_SIZE=10;
 
 window.addEventListener("load", function(){
   document.getElementById("login-logo").src=CFG.LOGO_URL;
@@ -462,15 +424,11 @@ window.addEventListener("load", function(){
 });
 
 function doLogin(){
-  var val=document.getElementById("l-pw").value.trim();
+  var v=document.getElementById("l-pw").value.trim();
   var e=document.getElementById("l-err");
-  if(val===CFG.ADMIN_PASSWORD){ enterAdmin(); return; }
-  if(!dataLoaded){
-    showErr(e,"Data masih dimuat, tunggu sebentar lalu coba lagi.");
-    return;
-  }
-  var key=val.toLowerCase();
-  var found=null;
+  if(v===CFG.ADMIN_PASSWORD){ enterAdmin(); return; }
+  if(!dataLoaded){ showErr(e,"Data masih dimuat, tunggu sebentar lalu coba lagi."); return; }
+  var key=v.toLowerCase(), found=null;
   Object.keys(commByCode).forEach(function(c){ if(c.toLowerCase()===key) found=c; });
   if(found){ enterPartner(found); return; }
   showErr(e,"Password / kode tidak dikenali.");
@@ -480,16 +438,14 @@ function enterAdmin(){
   document.getElementById("login-screen").classList.add("off");
   document.getElementById("partner-view").classList.remove("on");
   document.getElementById("app").classList.add("on");
-  startAutoRefresh();
-  renderAdmin();
+  startAutoRefresh(); renderAdmin();
 }
 function enterPartner(code){
   currentRole="partner"; currentCode=code;
   document.getElementById("login-screen").classList.add("off");
   document.getElementById("app").classList.remove("on");
   document.getElementById("partner-view").classList.add("on");
-  startAutoRefresh();
-  renderPartner();
+  startAutoRefresh(); renderPartner();
 }
 function doLogout(){
   document.getElementById("app").classList.remove("on");
@@ -499,11 +455,7 @@ function doLogout(){
   stopAutoRefresh(); currentRole=""; currentCode="";
 }
 function showErr(el,msg){ el.textContent=msg; el.classList.add("on"); setTimeout(function(){ el.classList.remove("on"); },3000); }
-document.addEventListener("keydown", function(e){
-  if(e.key!=="Enter") return;
-  var la=document.getElementById("login-screen");
-  if(la && !la.classList.contains("off")) doLogin();
-});
+document.addEventListener("keydown", function(e){ if(e.key!=="Enter") return; var la=document.getElementById("login-screen"); if(la&&!la.classList.contains("off")) doLogin(); });
 
 function startAutoRefresh(){ stopAutoRefresh(); if(!CFG.REFRESH_MIN) return; refreshTimer=setInterval(function(){ fetchData(false); },CFG.REFRESH_MIN*60*1000); }
 function stopAutoRefresh(){ if(refreshTimer){ clearInterval(refreshTimer); refreshTimer=null; } }
@@ -513,11 +465,10 @@ function fetchData(manual){
   fetch(CFG.SCRIPT_URL)
     .then(function(r){ return r.json(); })
     .then(function(json){
-      allData=json.data||[];
-      commission=json.commission||[];
+      allData=json.data||[]; commission=json.commission||[];
       commByCode={}; commission.forEach(function(c){ if(c.referral_code) commByCode[String(c.referral_code).trim()]=c; });
       dataLoaded=true;
-      var stamp=json.lastUpdate ? ("Database last updated: "+json.lastUpdate) : ("Fetched: "+new Date().toLocaleString("en-GB",{day:"2-digit",month:"long",year:"numeric",hour:"2-digit",minute:"2-digit"}));
+      var stamp=json.lastUpdate?("Database last updated: "+json.lastUpdate):("Fetched: "+new Date().toLocaleString("en-GB",{day:"2-digit",month:"long",year:"numeric",hour:"2-digit",minute:"2-digit"}));
       var st=document.getElementById("dash-sub-text"); if(st) st.textContent=stamp;
       if(currentRole==="admin") renderAdmin();
       else if(currentRole==="partner") renderPartner();
@@ -531,43 +482,40 @@ function fetchData(manual){
 }
 
 function renderAdmin(){ buildFilters(); applyAll(); renderCommission(); }
-
 function buildFilters(){
   var nm=sheetNameMap();
-  fillSel("f-source","All channels", uniq("_source"), nm);
-  fillSel("f-region","All regions", uniq("wilayah"), null);
+  fillSel("f-source","All channels",uniq("_source"),nm);
+  fillSel("f-region","All regions",uniq("wilayah"),null);
 }
 function uniq(key){ var o={}; allData.forEach(function(r){ if(r[key]) o[r[key]]=1; }); return Object.keys(o).sort(); }
-function fillSel(id, allLabel, keys, nm){
+function fillSel(id,allLabel,keys,nm){
   var sel=document.getElementById(id); if(!sel) return; var cur=sel.value;
   sel.innerHTML='<option value="">'+allLabel+'</option>';
   keys.forEach(function(k){ var o=document.createElement("option"); o.value=k; o.textContent=nm&&nm[k]?nm[k]:k; sel.appendChild(o); });
   sel.value=cur;
 }
 function getFilteredData(){
-  var src=val("f-source"), region=val("f-region"), search=val("f-search"), dfrom=raw("date-from"), dto=raw("date-to");
+  var src=val("f-source"),region=val("f-region"),search=val("f-search"),dfrom=raw("date-from"),dto=raw("date-to");
   return allData.filter(function(r){
-    if(src && (r._source||"").toLowerCase()!==src) return false;
-    if(region && (r.wilayah||"").toLowerCase()!==region) return false;
-    if(search && !(r.media_name||"").toLowerCase().includes(search) && !(r.link||"").toLowerCase().includes(search) && !(r.referral_code||"").toLowerCase().includes(search)) return false;
+    if(src&&(r._source||"").toLowerCase()!==src) return false;
+    if(region&&(r.wilayah||"").toLowerCase()!==region) return false;
+    if(search&&!(r.media_name||"").toLowerCase().includes(search)&&!(r.link||"").toLowerCase().includes(search)&&!(r.referral_code||"").toLowerCase().includes(search)) return false;
     if(dfrom||dto){ var ts=normDateISO(r.date); if(!ts) return true; if(dfrom&&ts<dfrom) return false; if(dto&&ts>dto) return false; }
     return true;
   });
 }
 function val(id){ var el=document.getElementById(id); return el?el.value.toLowerCase():""; }
 function raw(id){ var el=document.getElementById(id); return el?el.value:""; }
-
 function normDateISO(v){
   var s=String(v||"").trim();
   var m=s.match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})$/);
   if(m) return m[3]+"-"+m[2].padStart(2,"0")+"-"+m[1].padStart(2,"0");
   var m2=s.match(/^(\d{4})-(\d{2})-(\d{2})$/);
-  if(m2) return s;
-  return "";
+  if(m2) return s; return "";
 }
-
 function clearDates(){ document.getElementById("date-from").value=""; document.getElementById("date-to").value=""; applyAll(); }
 function applyAll(){
+  tablePage=1;
   var d=getFilteredData();
   renderKPI(d); renderTrend(d);
   renderRank("rank-channel","_source",true,d);
@@ -592,78 +540,42 @@ function bar(id,p){ var el=document.getElementById(id); if(el) el.style.width=p+
 
 function weekKey(v){
   if(!v) return null;
-  var s=String(v).trim();
-  var d;
+  var s=String(v).trim(), d;
   var m1=s.match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})$/);
   if(m1) d=new Date(Number(m1[3]),Number(m1[2])-1,Number(m1[1]));
-  else {
-    var m2=s.match(/^(\d{4})-(\d{2})-(\d{2})$/);
-    if(m2) d=new Date(Number(m2[1]),Number(m2[2])-1,Number(m2[3]));
-    else return null;
-  }
+  else { var m2=s.match(/^(\d{4})-(\d{2})-(\d{2})$/); if(m2) d=new Date(Number(m2[1]),Number(m2[2])-1,Number(m2[3])); else return null; }
   if(isNaN(d.getTime())) return null;
-  var day=d.getDay();
-  var offset=day>=5 ? day-5 : day+2;
+  var day=d.getDay(), offset=day>=5?day-5:day+2;
   var fri=new Date(d.getTime()-offset*86400000);
-  var yyyy=fri.getFullYear();
-  var mm=String(fri.getMonth()+1).padStart(2,"0");
-  var dd=String(fri.getDate()).padStart(2,"0");
-  return yyyy+"-"+mm+"-"+dd;
+  return fri.getFullYear()+"-"+String(fri.getMonth()+1).padStart(2,"0")+"-"+String(fri.getDate()).padStart(2,"0");
 }
-
 function weekLabel(fridayStr){
   var p=fridayStr.split("-");
   var fri=new Date(Number(p[0]),Number(p[1])-1,Number(p[2]));
   var thu=new Date(fri.getTime()+6*86400000);
   var MN=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
-  var fdStr=String(fri.getDate()).padStart(2,"0");
-  var tdStr=String(thu.getDate()).padStart(2,"0");
-  if(fri.getMonth()===thu.getMonth()){
-    return fdStr+"\u2013"+tdStr+" "+MN[fri.getMonth()];
-  } else {
-    return fdStr+" "+MN[fri.getMonth()]+"\u2013"+tdStr+" "+MN[thu.getMonth()];
-  }
+  var fd=String(fri.getDate()).padStart(2,"0"), td=String(thu.getDate()).padStart(2,"0");
+  return fri.getMonth()===thu.getMonth()?fd+"\u2013"+td+" "+MN[fri.getMonth()]:fd+" "+MN[fri.getMonth()]+"\u2013"+td+" "+MN[thu.getMonth()];
 }
-
 function renderTrend(d){
-  var bm={};
-  d.forEach(function(r){
-    var k=weekKey(r.date);
-    if(!k) return;
-    if(!bm[k]) bm[k]={reg:0,rev:0};
-    bm[k].reg+=num(r.jumlah_pendaftar);
-    bm[k].rev+=num(r.total_pendapatan);
-  });
-  var keys=Object.keys(bm).sort();
-  var labels=keys.map(weekLabel);
-  var reg=keys.map(function(k){return bm[k].reg;});
-  var rev=keys.map(function(k){return bm[k].rev;});
+  var bm={}; d.forEach(function(r){ var k=weekKey(r.date); if(!k) return; if(!bm[k]) bm[k]={reg:0,rev:0}; bm[k].reg+=num(r.jumlah_pendaftar); bm[k].rev+=num(r.total_pendapatan); });
+  var keys=Object.keys(bm).sort(), labels=keys.map(weekLabel), reg=keys.map(function(k){return bm[k].reg;}), rev=keys.map(function(k){return bm[k].rev;});
   if(trendChart){ trendChart.destroy(); trendChart=null; }
   trendChart=new Chart(document.getElementById("chart-trend").getContext("2d"),{
     data:{ labels:labels, datasets:[
       { type:"bar", label:"Registrations", data:reg, backgroundColor:"#1F5FE0", borderRadius:5, borderSkipped:false, yAxisID:"y", order:2 },
       { type:"line", label:"Revenue", data:rev, borderColor:"#F59E0B", backgroundColor:"#F59E0B", borderWidth:2.5, pointRadius:3, pointBackgroundColor:"#F59E0B", tension:0.3, yAxisID:"y1", order:1 }
     ]},
-    options:{
-      responsive:true, maintainAspectRatio:false,
-      plugins:{
-        legend:{display:false},
-        tooltip:{ callbacks:{ label:function(c){ return c.dataset.label==="Revenue"?" "+fmtRp(c.parsed.y):" "+fmtNum(c.parsed.y)+" registrations"; } } }
-      },
-      scales:{
-        x:{ grid:{display:false}, ticks:{font:{size:11},color:"#9AA6BC",maxRotation:45,minRotation:30} },
-        y:{ position:"left", grid:{color:"#E7EDF8"}, ticks:{font:{size:11},color:"#9AA6BC",callback:function(v){return v>=1000?(v/1000).toFixed(0)+"K":v;}} },
-        y1:{ position:"right", grid:{display:false}, ticks:{font:{size:11},color:"#9AA6BC",callback:function(v){return v>=1e9?(v/1e9).toFixed(1)+"M":v>=1e6?(v/1e6).toFixed(0)+"jt":v;}} }
-      }
+    options:{ responsive:true, maintainAspectRatio:false,
+      plugins:{ legend:{display:false}, tooltip:{ callbacks:{ label:function(c){ return c.dataset.label==="Revenue"?" "+fmtRp(c.parsed.y):" "+fmtNum(c.parsed.y)+" registrations"; } } } },
+      scales:{ x:{ grid:{display:false}, ticks:{font:{size:11},color:"#9AA6BC",maxRotation:45,minRotation:30} }, y:{ position:"left", grid:{color:"#E7EDF8"}, ticks:{font:{size:11},color:"#9AA6BC",callback:function(v){return v>=1000?(v/1000).toFixed(0)+"K":v;}} }, y1:{ position:"right", grid:{display:false}, ticks:{font:{size:11},color:"#9AA6BC",callback:function(v){return v>=1e9?(v/1e9).toFixed(1)+"M":v>=1e6?(v/1e6).toFixed(0)+"jt":v;}} } }
     }
   });
-  document.getElementById("chart-legend-trend").innerHTML=
-    '<span class="legend-item"><span class="legend-sq" style="background:#1F5FE0"></span>Registrations</span>'+
-    '<span class="legend-item"><span class="legend-sq" style="background:#F59E0B"></span>Revenue</span>';
+  document.getElementById("chart-legend-trend").innerHTML='<span class="legend-item"><span class="legend-sq" style="background:#1F5FE0"></span>Registrations</span><span class="legend-item"><span class="legend-sq" style="background:#F59E0B"></span>Revenue</span>';
 }
 
 function renderRank(elId,key,isChannel,d){
-  var nm=sheetNameMap(); var groups=groupBy(d,key,"jumlah_pendaftar").slice(0,isChannel?5:10);
+  var nm=sheetNameMap(), groups=groupBy(d,key,"jumlah_pendaftar").slice(0,isChannel?5:10);
   var max=groups.length?groups[0][1]:1, total=groups.reduce(function(s,g){return s+g[1];},0)||1;
   var html=groups.map(function(g,idx){
     var label=isChannel?(nm[g[0]]||g[0]):(g[0]||"(none)"), color=isChannel?chColor(label):"#1F5FE0";
@@ -673,7 +585,7 @@ function renderRank(elId,key,isChannel,d){
   document.getElementById(elId).innerHTML=html||'<div style="color:var(--muted);font-size:13px;padding:10px 0;">No data</div>';
 }
 function renderDonut(d){
-  var nm=sheetNameMap(); var byR=groupBy(d,"_source","total_pendapatan");
+  var nm=sheetNameMap(), byR=groupBy(d,"_source","total_pendapatan");
   var labels=byR.map(function(g){return nm[g[0]]||g[0];}), vals=byR.map(function(g){return g[1];}), colors=labels.map(chColor);
   if(donutChart){ donutChart.destroy(); donutChart=null; }
   donutChart=new Chart(document.getElementById("chart-donut").getContext("2d"),{
@@ -699,7 +611,6 @@ function renderConversionTable(d){
 }
 function dash(){ return '<span style="color:var(--muted)">—</span>'; }
 
-var sortCol="jumlah_pendaftar", sortDir="desc";
 function colType(cols,key){ for(var i=0;i<cols.length;i++) if(cols[i].key===key) return cols[i].type; return "text"; }
 function cellHtml(col,r){
   var v=r[col.key];
@@ -722,26 +633,53 @@ function buildTable(rows,cols,sortable){
   rows.forEach(function(r){ html+='<tr>'; cols.forEach(function(col){ html+=cellHtml(col,r); }); html+='</tr>'; });
   return html+'</tbody></table>';
 }
+function buildPag(cur,total,rowCount,start,end,fn){
+  if(total<=1) return '';
+  var html='<div class="pag-bar"><div class="pag-info">Showing '+(start+1)+'–'+end+' of '+fmtNum(rowCount)+'</div><div class="pag-btns">';
+  html+='<button class="pag-btn" onclick="'+fn+'('+Math.max(1,cur-1)+')" '+(cur===1?'disabled':'')+'>&#8592;</button>';
+  var lo=Math.max(1,cur-2), hi=Math.min(total,cur+2);
+  if(lo>1){ html+='<button class="pag-btn" onclick="'+fn+'(1)">1</button>'; if(lo>2) html+='<span class="pag-info" style="padding:0 2px;">…</span>'; }
+  for(var i=lo;i<=hi;i++) html+='<button class="pag-btn'+(i===cur?' active':'')+'" onclick="'+fn+'('+i+')">'+i+'</button>';
+  if(hi<total){ if(hi<total-1) html+='<span class="pag-info" style="padding:0 2px;">…</span>'; html+='<button class="pag-btn" onclick="'+fn+'('+total+')">'+total+'</button>'; }
+  html+='<button class="pag-btn" onclick="'+fn+'('+Math.min(total,cur+1)+')" '+(cur===total?'disabled':'')+'>&#8594;</button>';
+  return html+'</div></div>';
+}
+
 function renderTable(d){
-  document.getElementById("tbl-count").textContent=fmtNum(d.length)+" rows";
-  if(!d.length){ document.getElementById("tbl-body").innerHTML='<div class="empty-state"><div class="empty-icon">&#128202;</div><div>No matching data</div></div>'; return; }
   var cols=CFG.DETAIL_COLS;
   var isNumType=function(k){ var t=colType(cols,k); return t==="num"||t==="rp"; };
-  var sorted=d.slice().sort(function(a,b){ var n=isNumType(sortCol); var av=n?num(a[sortCol]):String(a[sortCol]||"").toLowerCase(); var bv=n?num(b[sortCol]):String(b[sortCol]||"").toLowerCase(); if(av<bv) return sortDir==="asc"?-1:1; if(av>bv) return sortDir==="asc"?1:-1; return 0; });
-  document.getElementById("tbl-body").innerHTML=buildTable(sorted,cols,true);
+  var sorted=d.slice().sort(function(a,b){
+    var n=isNumType(sortCol);
+    var av=n?num(a[sortCol]):String(a[sortCol]||"").toLowerCase();
+    var bv=n?num(b[sortCol]):String(b[sortCol]||"").toLowerCase();
+    if(av<bv) return sortDir==="asc"?-1:1;
+    if(av>bv) return sortDir==="asc"?1:-1;
+    return 0;
+  });
+  var total=sorted.length, totalPages=Math.max(1,Math.ceil(total/PAGE_SIZE));
+  if(tablePage>totalPages) tablePage=1;
+  var start=(tablePage-1)*PAGE_SIZE, end=Math.min(start+PAGE_SIZE,total);
+  document.getElementById("tbl-count").textContent=fmtNum(total)+" rows";
+  if(!total){ document.getElementById("tbl-body").innerHTML='<div class="empty-state"><div class="empty-icon">&#128202;</div><div>No matching data</div></div>'; return; }
+  document.getElementById("tbl-body").innerHTML=buildTable(sorted.slice(start,end),cols,true)+buildPag(tablePage,totalPages,total,start,end,"gotoTable");
 }
-function doSort(col){ if(sortCol===col) sortDir=sortDir==="asc"?"desc":"asc"; else { sortCol=col; sortDir="desc"; } renderTable(getFilteredData()); }
+function doSort(col){ if(sortCol===col) sortDir=sortDir==="asc"?"desc":"asc"; else { sortCol=col; sortDir="desc"; } tablePage=1; renderTable(getFilteredData()); }
+function gotoTable(p){ tablePage=p; renderTable(getFilteredData()); }
 
 function renderCommission(){
   var note=document.getElementById("comm-rate-note"); if(note) note.textContent="Rp"+Number(CFG.COMMISSION_PER).toLocaleString("id-ID")+" / pendaftar";
   var q=(document.getElementById("comm-search")||{}).value; q=(q||"").toLowerCase();
-  var rows=commission.filter(function(c){ return !q || String(c.name||"").toLowerCase().includes(q) || String(c.referral_code||"").toLowerCase().includes(q); });
-  document.getElementById("comm-count").textContent=fmtNum(rows.length)+" mitra";
+  var rows=commission.filter(function(c){ return !q||String(c.name||"").toLowerCase().includes(q)||String(c.referral_code||"").toLowerCase().includes(q); });
+  rows.sort(function(a,b){ return num(b.commission)-num(a.commission); });
+  var total=rows.length, totalPages=Math.max(1,Math.ceil(total/PAGE_SIZE));
+  if(commPage>totalPages) commPage=1;
+  var start=(commPage-1)*PAGE_SIZE, end=Math.min(start+PAGE_SIZE,total);
+  document.getElementById("comm-count").textContent=fmtNum(total)+" mitra";
   if(!commission.length){ document.getElementById("comm-body").innerHTML='<div class="empty-state"><div class="empty-icon">&#128176;</div><div>Belum ada data.</div></div>'; return; }
   if(!rows.length){ document.getElementById("comm-body").innerHTML='<div class="empty-state"><div>Tidak ada yang cocok.</div></div>'; return; }
-  rows.sort(function(a,b){ return num(b.commission)-num(a.commission); });
-  document.getElementById("comm-body").innerHTML=buildTable(rows,CFG.COMMISSION_COLS,false);
+  document.getElementById("comm-body").innerHTML=buildTable(rows.slice(start,end),CFG.COMMISSION_COLS,false)+buildPag(commPage,totalPages,total,start,end,"gotoComm");
 }
+function gotoComm(p){ commPage=p; renderCommission(); }
 
 function renderPartner(){
   var c=commByCode[currentCode]||{};
@@ -785,3 +723,6 @@ function exportPDF(){
 </script>
 </body>
 </html>
+
+You are out of free messages until 7:50 AM
+Get more
