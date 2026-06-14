@@ -71,6 +71,7 @@ input { font-family:var(--font); }
 .card-sub { font-size:12px; color:var(--muted); margin-bottom:18px; }
 .kpi-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; margin-bottom:26px; }
 .kpi-grid.two { grid-template-columns:repeat(2,1fr); }
+.kpi-grid.three { grid-template-columns:repeat(3,1fr); }
 @media (max-width:920px) { .kpi-grid { grid-template-columns:repeat(2,1fr); } }
 .kpi-card { background:var(--white); border:1px solid var(--border); border-radius:var(--rlg); padding:22px 24px; position:relative; overflow:hidden; }
 .kpi-card.accent { background:var(--grad); border:none; }
@@ -259,53 +260,46 @@ th.sort-desc .sort-arrow::after { content:" \25BC"; opacity:1; }
     </div>
 
     <div class="section-label">Key performance indicators</div>
-    <div class="kpi-grid">
-      <!-- Card 1: Total Registrations (dari Database, ikut filter) -->
+    <div class="kpi-grid three">
+      <!-- Card 1: Total Payment (sheet Payment kolom Payment, ikut filter tanggal) -->
       <div class="kpi-card accent">
-        <div class="kpi-lbl">Total Registrations</div>
-        <div class="kpi-val" id="k-total">&mdash;</div>
-        <div class="kpi-sub">of target <span id="k-target-p">&mdash;</span></div>
-        <div class="kpi-progress"><div class="kpi-progress-track"><div class="kpi-progress-fill" id="k-total-bar" style="width:0%"></div></div><div class="kpi-progress-label"><span class="kpi-pct" id="k-total-pct">0%</span><span class="kpi-tgt">achieved</span></div></div>
+        <div class="kpi-lbl">Total Payment</div>
+        <div class="kpi-val" id="k-payment">&mdash;</div>
+        <div class="kpi-sub">total pembayaran (sesuai filter tanggal)</div>
       </div>
-      <!-- Card 2: Total Registrasi (dari sheet Registrasi, TIDAK ikut filter) -->
+      <!-- Card 2: Total Registrasi (sheet Payment kolom Jumlah Registrasi, ikut filter tanggal) -->
       <div class="kpi-card">
         <div class="kpi-lbl">Total Registrasi</div>
         <div class="kpi-val" id="k-treg">&mdash;</div>
+        <div class="kpi-sub">total registrasi (sesuai filter tanggal)</div>
       </div>
-      <!-- Card 3: Total Spending -->
+      <!-- Card 3: Total Spending (sheet Database) -->
       <div class="kpi-card">
         <div class="kpi-lbl">Total Spending</div>
         <div class="kpi-val" id="k-cost">&mdash;</div>
-        <div class="kpi-sub">accumulated spend, all channels</div>
-      </div>
-      <!-- Card 4: Cost per Acquisition -->
-      <div class="kpi-card">
-        <div class="kpi-lbl">Cost per Acquisition</div>
-        <div class="kpi-val" id="k-cpa">&mdash;</div>
-        <div class="kpi-sub">average cost to acquire 1 registrant</div>
+        <div class="kpi-sub">total biaya semua channel</div>
       </div>
     </div>
 
-    <div class="section-label">Weekly trend</div>
+    <div class="section-label">Registrasi vs Payment</div>
     <div class="card full">
-      <div class="card-title">Registrations &amp; revenue by week</div>
-      <div class="card-sub">Fri&#8211;Thu, all channels</div>
+      <div class="card-title">Perbandingan Registrasi &amp; Payment per tanggal</div>
+      <div class="card-sub">Berdasarkan sheet Payment &middot; mengikuti filter tanggal</div>
       <div id="chart-legend-trend" class="chart-legend"></div>
       <div style="position:relative;height:300px;"><canvas id="chart-trend"></canvas></div>
     </div>
 
-    <div class="section-label">Channel performance</div>
-    <div class="grid-2-wide">
+    <div class="section-label">Channel &amp; region</div>
+    <div class="grid-2">
       <div class="card">
-        <div class="card-title">Registrations by channel</div>
+        <div class="card-title">Payment by channel</div>
         <div class="card-sub">Top performing acquisition sources</div>
         <div class="ch-list" id="rank-channel"></div>
       </div>
       <div class="card">
-        <div class="card-title">Revenue by channel</div>
-        <div class="card-sub">Revenue contribution per source</div>
-        <div id="chart-legend-donut" class="chart-legend"></div>
-        <div style="position:relative;height:220px;"><canvas id="chart-donut"></canvas></div>
+        <div class="card-title">Top 10 region</div>
+        <div class="card-sub">Most registrations by region</div>
+        <div class="ch-list" id="rank-region"></div>
       </div>
     </div>
 
@@ -318,20 +312,6 @@ th.sort-desc .sort-arrow::after { content:" \25BC"; opacity:1; }
           <thead><tr><th>Channel</th><th>Impressions</th><th>Reach</th><th>Registrations</th><th>Conv. Rate</th><th>CPA</th><th>Status</th></tr></thead>
           <tbody id="conv-tbody"></tbody>
         </table>
-      </div>
-    </div>
-
-    <div class="section-label">Top rankings</div>
-    <div class="grid-2">
-      <div class="card">
-        <div class="card-title">Top 10 regions</div>
-        <div class="card-sub">Most registrations by region</div>
-        <div class="ch-list" id="rank-region"></div>
-      </div>
-      <div class="card">
-        <div class="card-title">Top 10 media</div>
-        <div class="card-sub">Most registrations by media name</div>
-        <div class="ch-list" id="rank-media"></div>
       </div>
     </div>
 
@@ -348,19 +328,6 @@ th.sort-desc .sort-arrow::after { content:" \25BC"; opacity:1; }
       </div>
       <div class="table-scroll" id="tbl-body"><div class="loading-row">Loading data...</div></div>
     </div>
-
-    <div class="section-label">KOL &amp; Homeless</div>
-    <div class="table-wrap full">
-      <div class="table-bar">
-        <div class="table-bar-left">
-          <span class="table-title-sm">KOL &amp; Homeless</span>
-          <span class="table-count" id="comm-count">&mdash;</span>
-          <span class="muted" id="comm-rate-note"></span>
-        </div>
-        <input class="t-search no-pdf" type="text" id="comm-search" placeholder="Search nama / kode..." oninput="commPage=1;renderCommission()">
-      </div>
-      <div class="table-scroll" id="comm-body"><div class="loading-row">Loading...</div></div>
-    </div>
   </div>
 </div>
 
@@ -373,7 +340,6 @@ var CFG = {
   LOGO_URL       : "https://bgsspace.github.io/dashboartStarlite/logostarlite.png",
   GFORM_URL      : "https://docs.google.com/forms/d/e/1FAIpQLSfeN3DFiKzpoSfWamDiArZWQKCwAVjg00XAWr2fOVlgiM5o1A/viewform",
   COMMISSION_PER : 30000,
-  TARGET_P       : 1000000,
   REFRESH_MIN    : 0,
   COMMISSION_SOURCES : ["kol","homeless"],
   SHEETS: [
@@ -395,13 +361,6 @@ var CFG = {
     { key:"views",            label:"Views",         type:"num"     },
     { key:"interaction",      label:"Interaction",   type:"num"     },
     { key:"cost",             label:"Cost",          type:"rp"      }
-  ],
-  COMMISSION_COLS: [
-    { key:"name",           label:"Nama",           type:"text"    },
-    { key:"source",         label:"Category",       type:"channel" },
-    { key:"link_postingan", label:"Link Postingan", type:"linkbtn", btn:"Cek Postingan" },
-    { key:"registrations",  label:"Jumlah Daftar",  type:"num"     },
-    { key:"commission",     label:"Estimasi Komisi",type:"rp"      }
   ]
 };
 
@@ -410,12 +369,12 @@ function chColor(name){ var k=(name||"").toLowerCase().replace(/\s+/g,"").replac
 function sheetNameMap(){ var nm={}; CFG.SHEETS.forEach(function(x){ nm[x.tab]=x.name; }); return nm; }
 
 // ── Global state ──────────────────────────────────────────────
-var totalRegistrasiGlobal = 0;
+var paymentData = [];          // [{date:"DD/MM/YYYY", payment:n, registrasi:n}]
 var currentRole="", currentCode="", refreshTimer=null;
-var allData=[], commission=[], commByCode={}, trendChart=null, donutChart=null;
+var allData=[], commission=[], commByCode={}, trendChart=null;
 var dataLoaded=false;
 var sortCol="jumlah_pendaftar", sortDir="desc";
-var tablePage=1, commPage=1;
+var tablePage=1;
 var PAGE_SIZE=10;
 
 window.addEventListener("load", function(){
@@ -472,8 +431,8 @@ function fetchData(manual){
       allData=json.data||[];
       commission=json.commission||[];
       if(!commission.length) commission=deriveCommission();
-      // ── Ambil totalRegistrasi dari sheet Registrasi ──
-      totalRegistrasiGlobal = json.totalRegistrasi || 0;
+      // ── Data per tanggal dari sheet Payment ──
+      paymentData = json.payment || [];
       commByCode={}; commission.forEach(function(c){ if(c.referral_code) commByCode[String(c.referral_code).trim()]=c; });
       dataLoaded=true;
       var stamp=json.lastUpdate?("Database last updated: "+json.lastUpdate):("Fetched: "+new Date().toLocaleString("en-GB",{day:"2-digit",month:"long",year:"numeric",hour:"2-digit",minute:"2-digit"}));
@@ -509,7 +468,7 @@ function deriveCommission(){
   return Object.keys(map).map(function(k){ var c=map[k]; c.commission=c.registrations*CFG.COMMISSION_PER; return c; });
 }
 
-function renderAdmin(){ buildFilters(); applyAll(); renderCommission(); }
+function renderAdmin(){ buildFilters(); applyAll(); }
 function buildFilters(){
   var nm=sheetNameMap();
   fillSel("f-source","All channels",uniq("_source"),nm);
@@ -532,6 +491,14 @@ function getFilteredData(){
     return true;
   });
 }
+// Filter data sheet Payment by rentang tanggal (cards + trend)
+function getFilteredPayment(){
+  var dfrom=raw("date-from"),dto=raw("date-to");
+  return (paymentData||[]).filter(function(p){
+    if(dfrom||dto){ var ts=normDateISO(p.date); if(!ts) return true; if(dfrom&&ts<dfrom) return false; if(dto&&ts>dto) return false; }
+    return true;
+  });
+}
 function val(id){ var el=document.getElementById(id); return el?el.value.toLowerCase():""; }
 function raw(id){ var el=document.getElementById(id); return el?el.value:""; }
 function normDateISO(v){
@@ -545,70 +512,53 @@ function clearDates(){ document.getElementById("date-from").value=""; document.g
 function applyAll(){
   tablePage=1;
   var d=getFilteredData();
-  renderKPI(d); renderTrend(d);
+  renderKPI(d);
+  renderTrend();
   renderRank("rank-channel","_source",true,d);
-  renderDonut(d);
-  renderConversionTable(d);
   renderRank("rank-region","wilayah",false,d);
-  renderRank("rank-media","media_name",false,d);
+  renderConversionTable(d);
   renderTable(d);
 }
 
 function renderKPI(d){
-  // k-total: dari data terfilter (Database)
-  var tp=0,tc=0;
-  d.forEach(function(r){ tp+=num(r.jumlah_pendaftar); tc+=num(r.cost); });
-  var pctP=CFG.TARGET_P?Math.min(Math.round(tp/CFG.TARGET_P*100),100):0;
-  var cpa=tp?Math.round(tc/tp):0;
+  // Total Payment & Total Registrasi: dari sheet Payment, ikut filter tanggal
+  var fp=getFilteredPayment();
+  var totalPayment=0, totalReg=0;
+  fp.forEach(function(p){ totalPayment+=num(p.payment); totalReg+=num(p.registrasi); });
+  set("k-payment",fmtNum(totalPayment));
+  set("k-treg",fmtNum(totalReg));
 
-  set("k-total",fmtNum(tp));
-  set("k-target-p",fmtNum(CFG.TARGET_P));
-  set("k-total-pct",pctP+"%");
-  bar("k-total-bar",pctP);
-
-  // k-treg: dari sheet Registrasi (global, tidak terpengaruh filter)
-  set("k-treg", fmtNum(totalRegistrasiGlobal));
-
+  // Total Spending: dari data Database terfilter
+  var tc=0;
+  d.forEach(function(r){ tc+=num(r.cost); });
   set("k-cost",fmtRp(tc));
-  set("k-cpa",fmtRp(cpa));
 }
 function set(id,v){ var el=document.getElementById(id); if(el) el.textContent=v; }
-function bar(id,p){ var el=document.getElementById(id); if(el) el.style.width=p+"%"; }
 
-function weekKey(v){
-  if(!v) return null;
-  var s=String(v).trim(), d;
-  var m1=s.match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})$/);
-  if(m1) d=new Date(Number(m1[3]),Number(m1[2])-1,Number(m1[1]));
-  else { var m2=s.match(/^(\d{4})-(\d{2})-(\d{2})$/); if(m2) d=new Date(Number(m2[1]),Number(m2[2])-1,Number(m2[3])); else return null; }
-  if(isNaN(d.getTime())) return null;
-  var day=d.getDay(), offset=day>=5?day-5:day+2;
-  var fri=new Date(d.getTime()-offset*86400000);
-  return fri.getFullYear()+"-"+String(fri.getMonth()+1).padStart(2,"0")+"-"+String(fri.getDate()).padStart(2,"0");
-}
-function weekLabel(fridayStr){
-  var p=fridayStr.split("-");
-  var fri=new Date(Number(p[0]),Number(p[1])-1,Number(p[2]));
-  var thu=new Date(fri.getTime()+6*86400000);
-  var MN=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
-  var fd=String(fri.getDate()).padStart(2,"0"), td=String(thu.getDate()).padStart(2,"0");
-  return fri.getMonth()===thu.getMonth()?fd+"\u2013"+td+" "+MN[fri.getMonth()]:fd+" "+MN[fri.getMonth()]+"\u2013"+td+" "+MN[thu.getMonth()];
-}
-function renderTrend(d){
-  var bm={}; d.forEach(function(r){ var k=weekKey(r.date); if(!k) return; if(!bm[k]) bm[k]={reg:0,rev:0}; bm[k].reg+=num(r.jumlah_pendaftar); bm[k].rev+=num(r.total_pendapatan); });
-  var keys=Object.keys(bm).sort(), labels=keys.map(weekLabel), reg=keys.map(function(k){return bm[k].reg;}), rev=keys.map(function(k){return bm[k].rev;});
+function renderTrend(){
+  var rows=getFilteredPayment().slice().sort(function(a,b){
+    var ka=normDateISO(a.date)||"", kb=normDateISO(b.date)||"";
+    return ka<kb?-1:(ka>kb?1:0);
+  });
+  var labels=rows.map(function(p){ var iso=normDateISO(p.date); if(!iso) return p.date; var pp=iso.split("-"); return pp[2]+"/"+pp[1]; });
+  var reg=rows.map(function(p){ return num(p.registrasi); });
+  var pay=rows.map(function(p){ return num(p.payment); });
   if(trendChart){ trendChart.destroy(); trendChart=null; }
   trendChart=new Chart(document.getElementById("chart-trend").getContext("2d"),{
+    type:"bar",
     data:{ labels:labels, datasets:[
-      { type:"bar", label:"Registrations", data:reg, backgroundColor:"#1F5FE0", borderRadius:5, borderSkipped:false, yAxisID:"y", order:2 },
-      { type:"line", label:"Revenue", data:rev, borderColor:"#F59E0B", backgroundColor:"#F59E0B", borderWidth:2.5, pointRadius:3, pointBackgroundColor:"#F59E0B", tension:0.3, yAxisID:"y1", order:1 }
+      { label:"Registrasi", data:reg, backgroundColor:"#1F5FE0", borderRadius:5, borderSkipped:false },
+      { label:"Payment",    data:pay, backgroundColor:"#16A34A", borderRadius:5, borderSkipped:false }
     ]},
     options:{ responsive:true, maintainAspectRatio:false,
-      plugins:{ legend:{display:false}, tooltip:{ callbacks:{ label:function(c){ return c.dataset.label==="Revenue"?" "+fmtRp(c.parsed.y):" "+fmtNum(c.parsed.y)+" registrations"; } } } },
-      scales:{ x:{ grid:{display:false}, ticks:{font:{size:11},color:"#9AA6BC",maxRotation:45,minRotation:30} }, y:{ position:"left", grid:{color:"#E7EDF8"}, ticks:{font:{size:11},color:"#9AA6BC",callback:function(v){return v>=1000?(v/1000).toFixed(0)+"K":v;}} }, y1:{ position:"right", grid:{display:false}, ticks:{font:{size:11},color:"#9AA6BC",callback:function(v){return v>=1e9?(v/1e9).toFixed(1)+"M":v>=1e6?(v/1e6).toFixed(0)+"jt":v;}} } }
+      plugins:{ legend:{display:false}, tooltip:{ callbacks:{ label:function(c){ return " "+c.dataset.label+": "+fmtNum(c.parsed.y); } } } },
+      scales:{
+        x:{ grid:{display:false}, ticks:{font:{size:11},color:"#9AA6BC",maxRotation:45,minRotation:0} },
+        y:{ beginAtZero:true, grid:{color:"#E7EDF8"}, ticks:{font:{size:11},color:"#9AA6BC",callback:function(v){return v>=1000?(v/1000).toFixed(1)+"K":v;}} }
+      }
     }
   });
-  document.getElementById("chart-legend-trend").innerHTML='<span class="legend-item"><span class="legend-sq" style="background:#1F5FE0"></span>Registrations</span><span class="legend-item"><span class="legend-sq" style="background:#F59E0B"></span>Revenue</span>';
+  document.getElementById("chart-legend-trend").innerHTML='<span class="legend-item"><span class="legend-sq" style="background:#1F5FE0"></span>Registrasi</span><span class="legend-item"><span class="legend-sq" style="background:#16A34A"></span>Payment</span>';
 }
 
 function renderRank(elId,key,isChannel,d){
@@ -620,17 +570,6 @@ function renderRank(elId,key,isChannel,d){
     return '<div class="ch-row"><div class="ch-rank">'+(idx+1)+'</div><div class="ch-dot" style="background:'+color+'"></div><div class="'+(isChannel?"ch-name ch-name-fixed":"ch-name")+'" title="'+esc(label)+'">'+esc(label)+'</div><div class="ch-bar-wrap"><div class="ch-bar-fill" style="width:'+w+'%;background:'+color+'"></div></div><div class="ch-val">'+fmtNum(g[1])+'</div><div class="ch-pct">'+pct+'%</div></div>';
   }).join("");
   document.getElementById(elId).innerHTML=html||'<div style="color:var(--muted);font-size:13px;padding:10px 0;">No data</div>';
-}
-function renderDonut(d){
-  var nm=sheetNameMap(), byR=groupBy(d,"_source","total_pendapatan");
-  var labels=byR.map(function(g){return nm[g[0]]||g[0];}), vals=byR.map(function(g){return g[1];}), colors=labels.map(chColor);
-  if(donutChart){ donutChart.destroy(); donutChart=null; }
-  donutChart=new Chart(document.getElementById("chart-donut").getContext("2d"),{
-    type:"doughnut", data:{ labels:labels, datasets:[{ data:vals, backgroundColor:colors, borderWidth:2, borderColor:"#FFFFFF" }] },
-    options:{ responsive:true, maintainAspectRatio:false, cutout:"62%", plugins:{ legend:{display:false}, tooltip:{ callbacks:{ label:function(c){ return " "+fmtRp(c.parsed); } } } } }
-  });
-  var tot=vals.reduce(function(a,b){return a+b;},0);
-  document.getElementById("chart-legend-donut").innerHTML=labels.map(function(l,i){ var pct=tot?Math.round(vals[i]/tot*100):0; return '<span class="legend-item"><span class="legend-sq" style="background:'+colors[i]+'"></span>'+esc(l)+' '+pct+'%</span>'; }).join("");
 }
 function renderConversionTable(d){
   var nm=sheetNameMap();
@@ -703,21 +642,6 @@ function renderTable(d){
 function doSort(col){ if(sortCol===col) sortDir=sortDir==="asc"?"desc":"asc"; else { sortCol=col; sortDir="desc"; } tablePage=1; renderTable(getFilteredData()); }
 function gotoTable(p){ tablePage=p; renderTable(getFilteredData()); }
 
-function renderCommission(){
-  var note=document.getElementById("comm-rate-note"); if(note) note.textContent="Rp"+Number(CFG.COMMISSION_PER).toLocaleString("id-ID")+" / pendaftar";
-  var q=(document.getElementById("comm-search")||{}).value; q=(q||"").toLowerCase();
-  var rows=commission.filter(function(c){ return !q||String(c.name||"").toLowerCase().includes(q)||String(c.referral_code||"").toLowerCase().includes(q); });
-  rows.sort(function(a,b){ return num(b.commission)-num(a.commission); });
-  var total=rows.length, totalPages=Math.max(1,Math.ceil(total/PAGE_SIZE));
-  if(commPage>totalPages) commPage=1;
-  var start=(commPage-1)*PAGE_SIZE, end=Math.min(start+PAGE_SIZE,total);
-  document.getElementById("comm-count").textContent=fmtNum(total)+" mitra";
-  if(!commission.length){ document.getElementById("comm-body").innerHTML='<div class="empty-state"><div class="empty-icon">&#128176;</div><div>Belum ada data.</div></div>'; return; }
-  if(!rows.length){ document.getElementById("comm-body").innerHTML='<div class="empty-state"><div>Tidak ada yang cocok.</div></div>'; return; }
-  document.getElementById("comm-body").innerHTML=buildTable(rows.slice(start,end),CFG.COMMISSION_COLS,false)+buildPag(commPage,totalPages,total,start,end,"gotoComm");
-}
-function gotoComm(p){ commPage=p; renderCommission(); }
-
 function renderPartner(){
   var c=commByCode[currentCode]||{};
   document.getElementById("p-name").textContent=c.name||currentCode;
@@ -737,8 +661,6 @@ function fmtNum(n){ return Math.round(num(n)).toLocaleString("en-US"); }
 function fmtRp(n){ var v=Math.round(num(n)); if(v>=1e12) return "Rp "+(v/1e12).toFixed(1)+"T"; if(v>=1e9) return "Rp "+(v/1e9).toFixed(1)+"M"; if(v>=1e6) return "Rp "+(v/1e6).toFixed(1)+"jt"; return "Rp "+v.toLocaleString("en-US"); }
 function fmtDate(v){ return String(v||"\u2014"); }
 function esc(s){ return String(s||"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;"); }
-var toastTimer=null;
-function toast(msg){ var t=document.getElementById("toast"); t.textContent=msg; t.classList.add("on"); if(toastTimer) clearTimeout(toastTimer); toastTimer=setTimeout(function(){ t.classList.remove("on"); },3500); }
 
 function exportPDF(){
   var root=document.getElementById("pdf-root");
